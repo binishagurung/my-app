@@ -1,13 +1,146 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Segoe UI", sans-serif;
+  color: #fff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-image 0.5s ease-in-out;
+}
+
+/* Background images for different weather */
+.default-bg {
+  background-image: url('https://store-images.s-microsoft.com/image/apps.23032.13608622719434797.30372fd8-b4bd-41c0-beea-1c2a61e087c1.a8347bb5-9305-48e8-b668-08df54c5a91a');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.clear-bg {
+  background-image: url('https://t3.ftcdn.net/jpg/04/43/10/34/360_F_443103420_6k4yyToTAys5xQKvOnME0bN1xoFFRNSR.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.clouds-bg {
+  background-image: url('https://img.pikbest.com/wp/202343/clear-sky-clouds-vibrant-summer-a-captivating-background-of-blue-skies-fluffy-and-sunlight_9982034.jpg!sw800');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.rain-bg {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqNCww3uUgi6DO16NOXuywzb9hZixSAd1Qyw&s');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.snow-bg {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYGdgx0upJ6ted_tGwpfsx883U9Gz6aWFZpQ&s');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.thunder-bg {
+  background-image: url('https://media.bom.gov.au/social/upload/images/lightning-at-adelaide-airport-rowland-beardsell-2015-calendar-resize.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Overlay to keep text readable */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.search-form input,
+.search-form button {
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.search-form input {
+  width: 60%;
+}
+
+.search-form button {
+  background-color: #3498db;
+  color: white;
+  cursor: pointer;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+  margin-top: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.temp {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.description {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.forecast-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.forecast-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.forecast-day {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 12px;
+  width: 150px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.forecast-day.bounce {
+  animation: bounce 0.5s ease;
+}
+
+.error {
+  color: red;
 }
